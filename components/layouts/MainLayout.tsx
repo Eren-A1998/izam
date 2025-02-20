@@ -26,8 +26,8 @@ const MainLayout: React.FC<Props> = ({ children }) => {
           >
             <Navigation />
           </aside>
-          <div className="min-h-screen relative flex flex-1 w-full flex-col justify-start pt-[72px] transition-[padding] duration-300 lg:pt-20 ml-96">
-            <div className="px-10 py-6 h-full">{children}</div>
+          <div className="min-h-screen relative flex flex-1 w-full flex-col justify-start pt-[72px] transition-[padding] duration-300 lg:pt-20 lg:ml-96">
+            {children}
           </div>
         </div>
       </div>

@@ -1,22 +1,46 @@
-"use client"
+"use client";
 import { useState } from "react";
-import { Box, Switch, MenuItem, Select, Avatar, Chip } from "@mui/material";
-import { LocationOn, CalendarToday, FavoriteBorder } from "@mui/icons-material";
+import {
+  Box,
+  Switch,
+  MenuItem,
+  Select,
+  Avatar,
+  Chip,
+  IconButton,
+  Menu,
+  MenuList,
+  Drawer,
+} from "@mui/material";
+import {
+  LocationOn,
+  CalendarToday,
+  FavoriteBorder,
+  MenuBookOutlined,
+  MenuOpenOutlined,
+  MenuOutlined,
+} from "@mui/icons-material";
+import Navigation from "@/components/Navigation";
 
 export default function Home() {
+  const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const [sort, setSort] = useState("Top match");
 
   return (
     <Box className="p-6 space-y-4  min-h-screen">
       {/* Sorting & Header Section */}
-      <Box className="flex justify-between items-center">
+      <Box className="flex justify-end items-center">
         <span className="text-gray-600">
           Sorting by:
           <Select
             value={sort}
             onChange={(e) => setSort(e.target.value)}
-            variant="standard"
-            className="ml-2 text-green-600"
+            variant="outlined"
+            size="small"
+            className="ml-2 !text-green-600 !border-none"
+            inputProps={{
+              className: "!border-none",
+            }}
           >
             <MenuItem value="Top match">Top match</MenuItem>
             <MenuItem value="Newest">Newest</MenuItem>
@@ -26,14 +50,22 @@ export default function Home() {
       </Box>
 
       {/* Job Category Header */}
-      <Box className="bg-green-600 text-white p-4 rounded-lg flex justify-between items-center">
-        <Box>
-          <h2 className="text-lg font-bold">UI Designer in Egypt</h2>
-          <p className="text-sm">70 job positions</p>
+      <Box className="flex items-center gap-x-3">
+        <Box className="bg-green-600 text-white p-4 rounded-lg flex flex-wrap gap-y-3 justify-between items-center flex-1 min-h-20">
+          <Box>
+            <h2 className="text-lg font-bold">UI Designer in Egypt</h2>
+            <p className="text-sm">70 job positions</p>
+          </Box>
+          <Box className="flex items-center space-x-2">
+            <span>Set alert</span>
+            <Switch />
+          </Box>
         </Box>
-        <Box className="flex items-center space-x-2">
-          <span>Set alert</span>
-          <Switch />
+
+        <Box className="border !border-grey-50 lg:hidden flex justify-center items-center !h-full !min-h-full">
+          <IconButton onClick={() => setOpenMobileMenu(true)}>
+            <MenuOutlined className="text-grey-50" fontSize="large" />
+          </IconButton>
         </Box>
       </Box>
 
@@ -63,7 +95,7 @@ export default function Home() {
         </Box>
 
         {/* Job Badges */}
-        <Box className="flex space-x-2">
+        <Box className="flex flex-wrap gap-2">
           <Chip label="0 - 3y of exp" variant="outlined" />
           <Chip label="Full time" variant="outlined" />
           <Chip label="Remote" variant="outlined" />
@@ -79,6 +111,17 @@ export default function Home() {
           <FavoriteBorder className="text-gray-400 cursor-pointer" />
         </Box>
       </Box>
+
+      <Drawer
+        className="lg:hidden"
+        PaperProps={{
+          className: "min-w-80",
+        }}
+        onClose={() => setOpenMobileMenu(false)}
+        open={openMobileMenu}
+      >
+        <Navigation CloseMobileMenu={() => setOpenMobileMenu(false)} />
+      </Drawer>
     </Box>
   );
 }
