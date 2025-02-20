@@ -1,26 +1,22 @@
 "use client";
-import { useState } from "react";
+import Navigation from "@/components/Navigation";
 import {
-  Box,
-  Switch,
-  MenuItem,
-  Select,
-  Avatar,
-  Chip,
-  IconButton,
-  Menu,
-  MenuList,
-  Drawer,
-} from "@mui/material";
-import {
-  LocationOn,
   CalendarToday,
   FavoriteBorder,
-  MenuBookOutlined,
-  MenuOpenOutlined,
-  MenuOutlined,
+  LocationOn,
+  MenuOutlined
 } from "@mui/icons-material";
-import Navigation from "@/components/Navigation";
+import {
+  Avatar,
+  Box,
+  Chip,
+  Drawer,
+  IconButton,
+  MenuItem,
+  Select,
+  Switch
+} from "@mui/material";
+import { useState } from "react";
 
 export default function Home() {
   const [openMobileMenu, setOpenMobileMenu] = useState(false);

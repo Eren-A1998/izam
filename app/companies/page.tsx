@@ -1,12 +1,7 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
-
-const Companies: React.FC<Props> = ({}) => {
-
-  return <div>
-    
-  </div>;
+const Companies: React.FC = () => {
+  return <div></div>;
 };
 
 export default Companies;

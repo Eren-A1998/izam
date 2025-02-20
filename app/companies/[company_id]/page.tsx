@@ -1,8 +1,7 @@
 import React from 'react'
 
-type Props = {}
 
-const CompanyDetails: React.FC<Props> = ({}) => {
+const CompanyDetails: React.FC = () => {
 
   return <div>
     

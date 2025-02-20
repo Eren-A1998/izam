@@ -1,18 +1,9 @@
 import {
-  Chat,
   ChatBubbleOutline,
-  ChatOutlined,
-  Home,
   HomeOutlined,
-  Message,
-  MessageOutlined,
-  NotificationAdd,
-  Notifications,
   NotificationsOutlined,
-  People,
   PeopleOutline,
   Search,
-  Work,
   WorkOutline,
 } from "@mui/icons-material";
 import {
@@ -24,9 +15,7 @@ import {
   Toolbar,
 } from "@mui/material";
 
-type Props = {};
-
-export default function Header({}: Props) {
+export default function Header() {
   return (
     <AppBar position="static">
       <Toolbar className="bg-grey-900 text-white h-20 flex justify-between items-center flex-row-reverse lg:flex-row">

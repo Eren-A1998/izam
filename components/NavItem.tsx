@@ -1,15 +1,15 @@
-import { useDrag, useDrop } from "react-dnd";
-import { ListItem, IconButton, TextField, Collapse, List } from "@mui/material";
-import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
-import { useState } from "react";
-import { NavItem } from "../types";
 import {
   ArrowUpIcon,
   EditIcon,
   InvisibleIcon,
   VisibleIcon,
 } from "@/public/assets/MainLayoutIcons";
+import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
+import { Collapse, IconButton, List, ListItem, TextField } from "@mui/material";
 import Link from "next/link";
+import { useState } from "react";
+import { useDrag, useDrop } from "react-dnd";
+import { NavItem } from "../types";
 
 interface Props {
   item: NavItem;
@@ -67,7 +67,11 @@ const NavItemComponent: React.FC<Props> = ({
   return (
     <>
       <ListItem
-        ref={(node) => drag(drop(node))}
+        ref={(node) => {
+          if (node) {
+            drag(drop(node));
+          }
+        }}
         sx={{ opacity: isDragging ? 0.5 : 1 }}
         className={`!justify-between !px-8 ${
           item.visible ? "" : enableEdit ? "!text-grey-50" : "!hidden"

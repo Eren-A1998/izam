@@ -1,8 +1,7 @@
 import React from 'react'
 
-type Props = {}
 
-const Applications: React.FC<Props> = ({}) => {
+const Applications: React.FC = () => {
 
   return <div>
     
